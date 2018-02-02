@@ -4,7 +4,7 @@
 #
 Name     : pugixml
 Version  : 1.8.1
-Release  : 3
+Release  : 4
 URL      : https://github.com/zeux/pugixml/releases/download/v1.8.1/pugixml-1.8.1.tar.gz
 Source0  : https://github.com/zeux/pugixml/releases/download/v1.8.1/pugixml-1.8.1.tar.gz
 Summary  : Light-weight, simple and fast XML parser for C++ with XPath support.
