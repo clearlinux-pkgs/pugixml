@@ -4,7 +4,7 @@
 #
 Name     : pugixml
 Version  : 1.9
-Release  : 5
+Release  : 6
 URL      : https://github.com/zeux/pugixml/releases/download/v1.9/pugixml-1.9.tar.gz
 Source0  : https://github.com/zeux/pugixml/releases/download/v1.9/pugixml-1.9.tar.gz
 Summary  : Light-weight, simple and fast XML parser for C++ with XPath support.
