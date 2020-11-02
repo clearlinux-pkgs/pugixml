@@ -4,14 +4,14 @@
 #
 Name     : pugixml
 Version  : 1.9
-Release  : 8
+Release  : 9
 URL      : https://github.com/zeux/pugixml/releases/download/v1.9/pugixml-1.9.tar.gz
 Source0  : https://github.com/zeux/pugixml/releases/download/v1.9/pugixml-1.9.tar.gz
 Summary  : Light-weight, simple and fast XML parser for C++ with XPath support.
 Group    : Development/Tools
 License  : MIT
-Requires: pugixml-lib
-BuildRequires : cmake
+Requires: pugixml-lib = %{version}-%{release}
+BuildRequires : buildreq-cmake
 
 %description
 pugixml 1.9 - an XML processing library
@@ -20,8 +20,9 @@ Report bugs and download new versions at http://pugixml.org/
 %package dev
 Summary: dev components for the pugixml package.
 Group: Development
-Requires: pugixml-lib
-Provides: pugixml-devel
+Requires: pugixml-lib = %{version}-%{release}
+Provides: pugixml-devel = %{version}-%{release}
+Requires: pugixml = %{version}-%{release}
 
 %description dev
 dev components for the pugixml package.
@@ -37,21 +38,30 @@ lib components for the pugixml package.
 
 %prep
 %setup -q -n pugixml-1.9
+cd %{_builddir}/pugixml-1.9
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
-export SOURCE_DATE_EPOCH=1522879980
-mkdir clr-build
+export LANG=C.UTF-8
+export SOURCE_DATE_EPOCH=1604354262
+mkdir -p clr-build
 pushd clr-build
-cmake .. -G "Unix Makefiles" -DCMAKE_INSTALL_PREFIX=/usr -DBUILD_SHARED_LIBS:BOOL=ON -DLIB_INSTALL_DIR:PATH=/usr/lib64 -DCMAKE_AR=/usr/bin/gcc-ar -DLIB_SUFFIX=64 -DCMAKE_BUILD_TYPE=RelWithDebInfo -DCMAKE_RANLIB=/usr/bin/gcc-ranlib
+export GCC_IGNORE_WERROR=1
+export AR=gcc-ar
+export RANLIB=gcc-ranlib
+export NM=gcc-nm
+export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
+export FCFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
+export FFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
+export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=4 "
+%cmake ..
 make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1522879980
+export SOURCE_DATE_EPOCH=1604354262
 rm -rf %{buildroot}
 pushd clr-build
 %make_install
@@ -62,7 +72,8 @@ popd
 
 %files dev
 %defattr(-,root,root,-)
-/usr/include/*.hpp
+/usr/include/pugiconfig.hpp
+/usr/include/pugixml.hpp
 /usr/lib64/cmake/pugixml/pugixml-config-relwithdebinfo.cmake
 /usr/lib64/cmake/pugixml/pugixml-config.cmake
 /usr/lib64/libpugixml.so
