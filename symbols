@@ -1,3 +1,6 @@
+libpugixml.so.1:_ZN4pugi10xml_writerD0Ev
+libpugixml.so.1:_ZN4pugi10xml_writerD1Ev
+libpugixml.so.1:_ZN4pugi10xml_writerD2Ev
 libpugixml.so.1:_ZN4pugi10xpath_nodeC1ERKNS_13xml_attributeERKNS_8xml_nodeE
 libpugixml.so.1:_ZN4pugi10xpath_nodeC1ERKNS_8xml_nodeE
 libpugixml.so.1:_ZN4pugi10xpath_nodeC1Ev
@@ -35,6 +38,7 @@ libpugixml.so.1:_ZN4pugi12xml_documentD1Ev
 libpugixml.so.1:_ZN4pugi12xml_documentD2Ev
 libpugixml.so.1:_ZN4pugi12xml_documentaSEOS0_
 libpugixml.so.1:_ZN4pugi13xml_attribute8set_nameEPKc
+libpugixml.so.1:_ZN4pugi13xml_attribute8set_nameEPKcm
 libpugixml.so.1:_ZN4pugi13xml_attribute9set_valueEPKc
 libpugixml.so.1:_ZN4pugi13xml_attribute9set_valueEPKcm
 libpugixml.so.1:_ZN4pugi13xml_attribute9set_valueEb
@@ -193,6 +197,7 @@ libpugixml.so.1:_ZN4pugi8xml_node19insert_child_beforeEPKcRKS0_
 libpugixml.so.1:_ZN4pugi8xml_node22insert_attribute_afterEPKcRKNS_13xml_attributeE
 libpugixml.so.1:_ZN4pugi8xml_node23insert_attribute_beforeEPKcRKNS_13xml_attributeE
 libpugixml.so.1:_ZN4pugi8xml_node8set_nameEPKc
+libpugixml.so.1:_ZN4pugi8xml_node8set_nameEPKcm
 libpugixml.so.1:_ZN4pugi8xml_node8traverseERNS_15xml_tree_walkerE
 libpugixml.so.1:_ZN4pugi8xml_node9set_valueEPKc
 libpugixml.so.1:_ZN4pugi8xml_node9set_valueEPKcm
